@@ -1,0 +1,19 @@
+﻿<!--<button type="submit"
+        ng-click="subscribe(post) = false"
+        class="btn btn-danger">
+    <span class="btn btn-success"
+          ng-show="subscribe"></span>
+    Subscribe
+</button>-->
+
+<button type="button"
+        class="btn btn-info"
+        ng-click="subscribe(post.author)"
+        ng-show="subscribedAuthors.indexOf(post.author) == -1">
+    <span class="glyphicon glyphicon-eye-open"></span> Subscribe
+</button>
+
+<span ng-show="subscribedAuthors.indexOf(post.author) != -1">
+    <span class="glyphicon glyphicon-ok"></span> Subscribed
+</span>
+
