@@ -10,9 +10,9 @@
                 postsApi.addPost($scope.newPost)
                     .then(function (data) {
                         console.log(data);
-                        $scope.posts.push(data);
-                        //$scope.newPost = {};
-                        //$scope.go("/");
+                        $scope.data.posts.push(data);
+                        $scope.newPost = {};
+                        $scope.go("/");
                     });
             };
         }

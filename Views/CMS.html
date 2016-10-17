@@ -19,10 +19,10 @@
             <th ng-click="orderByMe('postDate')">Post Date</th>
             <th></th>
         </tr>
-        <tr ng-repeat="post in posts | orderBy:title : author : postDate">
+        <tr ng-repeat="post in data.posts | orderBy:title : author : postDate">
             <td class="col-md-1" ng-bind="post.title"></td>
             <td class="col-md-1" ng-bind="post.author"></td>
-            <td class="col-md-1" ng-bind="post.postDate"></td>
+            <td class="col-md-1" ng-bind="post.postDate | date:'medium'"></td>
             <td class="col-md-1">
                 <button type="button"
                         class="btn btn-info"

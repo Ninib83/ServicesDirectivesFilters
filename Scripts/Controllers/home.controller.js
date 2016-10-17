@@ -6,12 +6,12 @@ angular.module("mainModule")
         "postsApi",
         function ($scope, postsApi) {
             $scope.title = "Home";
-            $scope.newPost = {};
 
-                console.log($scope.subscribedAuthors);
+                
 
                 $scope.subscribe = function (author) {
-                    $scope.subscribedAuthors.push(author);
+                    $scope.data.subscribedAuthors.push(author);
+                    $scope.saveSubscriptions();
                 };
 
                 $scope.upVote = function (post) {

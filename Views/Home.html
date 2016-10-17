@@ -19,51 +19,51 @@
     </div>
 </div>
 
-<div class="col-md-12">
-    <table class="table">
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Body</th>
-            <th>Post Date</th>
-        </tr>
-        <tr ng-repeat="post in posts | filter: author : title">
-            <td class="col-md-1" ng-bind="post.title"></td>
-            <td class="col-md-1" ng-bind="post.author"></td>
-            <td class="col-md-1" ng-bind="post.body"></td>
-            <td class="col-md-1" ng-bind="post.postDate"></td>
-            <td class="col-md-1">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Body</th>
+                <th>Post Date</th>
+            </tr>
+            <tr ng-repeat="post in data.posts | filter: author : title | censor ">
+                <td class="col-md-1" ng-bind="post.title"></td>
+                <td class="col-md-1" ng-bind="post.author"></td>
+                <td class="col-md-1" ng-bind="post.body"></td>
+                <td class="col-md-1" ng-bind="post.postDate | date:'medium'"></td>
+                <td class="col-md-1">
 
-                <button type="button"
-                        class="btn btn-success glyphicon glyphicon-thumbs-up"
-                        title="Up Vote"
-                        ng-click="upVote(post)">
+                    <button type="button"
+                            class="btn btn-success glyphicon glyphicon-thumbs-up"
+                            title="Up Vote"
+                            ng-click="upVote(post)">
                         <span ng-bind="post.upvotes">
-                    </span>
-                </button>
-                <button type="button"
-                        class="btn btn-danger glyphicon glyphicon-thumbs-down"
-                        title="Down Vote"
-                        ng-click="downVote(post)">
+                        </span>
+                    </button>
+                    <button type="button"
+                            class="btn btn-danger glyphicon glyphicon-thumbs-down"
+                            title="Down Vote"
+                            ng-click="downVote(post)">
                         <span ng-bind="post.downvotes"></span>
-                    
-                </button>
 
-                <button type="button"
-                        class="btn btn-info"
-                        ng-click="subscribe(post.author)"
-                        ng-show="subscribedAuthors.indexOf(post.author) == -1">
-                    <span class="glyphicon glyphicon-eye-open"></span> Subscribe
-                </button>
+                    </button>
 
-                <span ng-show="subscribedAuthors.indexOf(post.author) != -1">
-                    <span class="glyphicon glyphicon-ok"></span> Subscribed
-                </span>
+                    <button type="button"
+                            class="btn btn-info"
+                            ng-click="subscribe(post.author)"
+                            ng-show="data.subscribedAuthors.indexOf(post.author) == -1">
+                        <span class="glyphicon glyphicon-eye-open"></span> Subscribe
+                    </button>
 
-                <!--<subscribe-button ng-model="subscribedAuthors.indexOf(post.author)"></subscribe-button>-->
-            </td>
-        </tr>
-    </table>
+                    <span ng-show="data.subscribedAuthors.indexOf(post.author) != -1">
+                        <span class="glyphicon glyphicon-ok"></span> Subscribed
+                    </span>
 
-</div>
+                    <!--<subscribe-button ng-model="subscribedAuthors.indexOf(post.author)"></subscribe-button>-->
+                </td>
+            </tr>
+        </table>
+
+    </div>
 
